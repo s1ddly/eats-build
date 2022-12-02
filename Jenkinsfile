@@ -15,7 +15,7 @@ pipeline {
 				sh 'echo Downloading repo'
                 sh 'git clone git@github.com:s1ddly/eats.git'
                 sh 'cp list.csv eats/list.csv'
-				sh 'cd eats; git status; cd python; sh main.py; cd ..; git status'
+				sh 'cd eats; git status; cd python; python3 main.py; cd ..; git status'
             }
         }
     }
