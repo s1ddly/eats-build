@@ -15,6 +15,7 @@ pipeline {
 				sh 'echo Downloading repo'
                 sh 'git clone git@github.com:s1ddly/eats.git'
                 sh 'cp list.csv eats/list.csv'
+				sh 'cp images/* eats/assets/img/'
 				sh 'cd eats; git status; cd python; python3 main.py; cd ..; git status'
 				sh 'cd eats; nohup python -m http.server > ../web.log 2>&1 & echo $! > ../web.pid'
 				sh 'echo "website is now available to view at http://pi.hole:8000/"'
