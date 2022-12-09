@@ -24,9 +24,9 @@ pipeline {
         }
 		stage('Deploying to Test'){
 			steps{
+				sh 'cd eats; git status'			
+				input(message:"Deploy to Test?", ok: "Yes")				
 				sh 'echo deploying to the test environment'
-				sh 'cd eats; git status'
-				input(message:"Deploy to Test?", ok: "Yes")
 				sh 'cd eats; rm -rf /ehdd/site/root/*; cp -r * /ehdd/site/root/'
 				sh 'echo "website is now available to view at http://pi.hole:8000/"'
 			}
